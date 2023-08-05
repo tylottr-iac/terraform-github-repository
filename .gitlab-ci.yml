@@ -1,0 +1,15 @@
+include:
+  - remote: https://gitlab.com/tylottr-terraform/pipeline-resources/-/raw/main/templates/bases/tf.base.gitlab-ci.yml
+
+stages:
+  - test
+
+fmt:
+  extends: .tf:fmt
+  stage: test
+  needs: []
+
+validate:
+  extends: .tf:validate
+  stage: test
+  needs: []
