@@ -1,0 +1,22 @@
+name: terraform - test
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "*.tf"
+      - "*.tfvars"
+      - "*.hcl"
+  pull_request:
+    branches: [main]
+    paths:
+      - "*.tf"
+      - "*.tfvars"
+      - "*.hcl"
+jobs:
+  test:
+    uses: tylottr-iac/github-resources/.github/workflows/tf.test.yml@main
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
